@@ -1,3 +1,51 @@
+.header {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+
+  background: white;
+  padding: 20px;
+
+  border-radius: 12px;
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
+  margin-bottom: 25px;
+}
+
+.logo {
+  width: 220px;
+  height: auto;
+}
+
+.header-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo {
+  margin: 0;
+
+  color: #4b006e;
+
+  font-size: 38px;
+
+  font-weight: 700;
+
+  text-align: left;
+}
+
+.subtitulo {
+  margin-top: 6px;
+
+  color: #666;
+
+  font-size: 18px;
+
+  text-align: left;
+}
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   max-width: 900px;
@@ -15,10 +63,51 @@ h1 {
 
 .empleado {
   background: white;
+
   padding: 20px;
+
   border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+
   margin-bottom: 20px;
+}
+
+.resumen {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.contador {
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  font-weight: bold;
+}
+
+.verde {
+  background: #d4edda;
+}
+
+.amarillo {
+  background: #fff3cd;
+}
+
+.rojo {
+  background: #f8d7da;
+}
+
+.consulta {
+  color: #666;
+
+  font-size: 14px;
+
+  margin-top: 10px;
 }
 
 .card {
@@ -56,6 +145,20 @@ h1 {
 /* RESPONSIVE PARA CELULAR */
 
 @media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+
+    text-align: center;
+  }
+
+  .logo {
+    width: 180px;
+  }
+
+  .titulo {
+    font-size: 24px;
+  }
+
   body {
     padding: 10px;
   }

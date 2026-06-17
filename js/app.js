@@ -9,6 +9,10 @@ function excelDateToJSDate(serial) {
   return date.toLocaleDateString("es-AR");
 }
 
+function fechaConsulta() {
+  return new Date().toLocaleString("es-AR");
+}
+
 function diasRestantes(serial) {
   const utc_days = serial - 25569;
   const utc_value = utc_days * 86400;
@@ -70,6 +74,20 @@ async function cargar() {
 
   const datos = await respuesta.json();
 
+  let vigentes = 0;
+  let proximos = 0;
+  let vencidos = 0;
+
+  datos.forEach((item) => {
+    const estado = obtenerEstado(item.FechaVencimiento);
+
+    if (estado.clase === "vigente") vigentes++;
+
+    if (estado.clase === "proximo") proximos++;
+
+    if (estado.clase === "vencido") vencidos++;
+  });
+
   let html = "";
 
   if (datos.length === 0) {
@@ -84,16 +102,43 @@ async function cargar() {
   }
 
   html += `
-<h2>${datos[0].Nombre}</h2>
-<h3>Legajo ${datos[0].Legajo}</h3>
-`;
-
-  html += `
 <div class="empleado">
+
     <h2>${datos[0].Nombre}</h2>
-    <p><strong>Legajo:</strong> ${datos[0].Legajo}</p>
-    <p><strong>Capacitaciones:</strong> ${datos.length}</p>
+
+    <p>
+        <strong>Legajo:</strong>
+        ${datos[0].Legajo}
+    </p>
+
+    <p>
+        <strong>Total de capacitaciones:</strong>
+        ${datos.length}
+    </p>
+
+    <div class="resumen">
+
+        <div class="contador verde">
+            🟢 Vigentes: ${vigentes}
+        </div>
+
+        <div class="contador amarillo">
+            🟡 Por vencer: ${proximos}
+        </div>
+
+        <div class="contador rojo">
+            🔴 Vencidas: ${vencidos}
+        </div>
+
+    </div>
+
+    <p class="consulta">
+        Consultado:
+        ${fechaConsulta()}
+    </p>
+
 </div>
+
 `;
 
   datos.forEach((item) => {
