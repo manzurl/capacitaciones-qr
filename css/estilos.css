@@ -251,7 +251,32 @@ h1 {
     padding: 15px;
   }
 
+  .empleado h2 {
+    font-size: 28px;
+  }
+
   .card {
     padding: 15px;
+  }
+  .buscador {
+    width: 100%;
+
+    font-size: 16px;
+  }
+
+  .filtros-estado {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 8px;
+  }
+
+  .btn-filtro {
+    width: 100%;
+
+    padding: 12px;
+
+    font-size: 14px;
   }
 }

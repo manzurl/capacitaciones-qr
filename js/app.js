@@ -189,15 +189,19 @@ async function cargar() {
 }
 
 function actualizarContador() {
-  const visibles = document.querySelectorAll(
-    '.tarjeta-capacitacion:not([style*="display: none"])'
-  ).length;
+  const tarjetas = document.querySelectorAll(".tarjeta-capacitacion");
 
-  const total = document.querySelectorAll(".tarjeta-capacitacion").length;
+  let visibles = 0;
+
+  tarjetas.forEach((tarjeta) => {
+    if (tarjeta.style.display !== "none") {
+      visibles++;
+    }
+  });
 
   document.getElementById(
     "contadorResultados"
-  ).textContent = `Mostrando ${visibles} de ${total} capacitaciones`;
+  ).textContent = `Mostrando ${visibles} de ${tarjetas.length} capacitaciones`;
 }
 
 cargar();
