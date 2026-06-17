@@ -46,6 +46,67 @@
   text-align: left;
 }
 
+.filtros-estado {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.btn-filtro {
+  border: none;
+
+  padding: 10px 15px;
+
+  border-radius: 8px;
+
+  cursor: pointer;
+
+  background: #e9ecef;
+
+  font-weight: 600;
+}
+
+.btn-filtro:hover {
+  background: #d6d8db;
+}
+
+.btn-filtro.activo {
+  background: #4b006e;
+
+  color: white;
+}
+
+.buscador-container {
+  margin-bottom: 20px;
+}
+
+.buscador {
+  width: 100%;
+
+  padding: 12px 15px;
+
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  font-size: 16px;
+
+  box-sizing: border-box;
+
+  background: white;
+}
+
+.contador-resultados {
+  margin-top: 8px;
+
+  font-size: 14px;
+
+  color: #666;
+}
+
 body {
   font-family: "Segoe UI", Arial, sans-serif;
   max-width: 900px;
@@ -77,16 +138,13 @@ h1 {
   display: flex;
   gap: 10px;
   flex-wrap: wrap;
-
   margin-top: 15px;
   margin-bottom: 15px;
 }
 
 .contador {
   padding: 10px 15px;
-
   border-radius: 8px;
-
   font-weight: bold;
 }
 
@@ -104,9 +162,7 @@ h1 {
 
 .consulta {
   color: #666;
-
   font-size: 14px;
-
   margin-top: 10px;
 }
 

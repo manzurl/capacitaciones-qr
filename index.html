@@ -14,9 +14,32 @@
       <div class="header-info">
         <h1 class="titulo">Portal de Competencias y Capacitación</h1>
 
-        <p class="subtitulo">Consulta de capacitaciones y competencias</p>
+        <p class="subtitulo">Seguridad y salud ocupacional</p>
       </div>
     </header>
+    <div class="buscador-container">
+      <input
+        type="text"
+        id="filtroCapacitaciones"
+        placeholder="🔍 Buscar capacitación..."
+        class="buscador"
+      />
+
+      <div class="filtros-estado">
+        <button class="btn-filtro activo" data-filtro="todas">Todas</button>
+
+        <button class="btn-filtro" data-filtro="vigente">🟢 Vigentes</button>
+
+        <button class="btn-filtro" data-filtro="proximo">🟡 Por vencer</button>
+
+        <button class="btn-filtro" data-filtro="vencido">🔴 Vencidas</button>
+      </div>
+
+      <div id="contadorResultados" class="contador-resultados">
+        Mostrando 0 resultados
+      </div>
+    </div>
+
     <div id="resultado"></div>
 
     <script src="js/app.js"></script>

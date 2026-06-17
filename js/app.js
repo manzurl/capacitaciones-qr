@@ -103,9 +103,39 @@ async function cargar() {
 
   html += `
 <div class="empleado">
+
     <h2>${datos[0].Nombre}</h2>
-    <p><strong>Legajo:</strong> ${datos[0].Legajo}</p>
-    <p><strong>Capacitaciones:</strong> ${datos.length}</p>
+
+    <p>
+        <strong>Legajo:</strong>
+        ${datos[0].Legajo}
+    </p>
+
+    <p>
+        <strong>Total de capacitaciones:</strong>
+        ${datos.length}
+    </p>
+
+    <div class="resumen">
+
+        <div class="contador verde">
+            🟢 Vigentes: ${vigentes}
+        </div>
+
+        <div class="contador amarillo">
+            🟡 Por vencer: ${proximos}
+        </div>
+
+        <div class="contador rojo">
+            🔴 Vencidas: ${vencidos}
+        </div>
+
+    </div>
+
+    <p class="consulta">
+        Consultado: ${fechaConsulta()}
+    </p>
+
 </div>
 `;
 
@@ -128,7 +158,9 @@ async function cargar() {
     }
 
     html += `
-        <div class="card ${estado.clase}">
+        <div
+    class="card ${estado.clase} tarjeta-capacitacion"
+    data-estado="${estado.clase}">
 
             <h3>${item.Capacitacion}</h3>
 
@@ -153,6 +185,56 @@ async function cargar() {
   });
 
   document.getElementById("resultado").innerHTML = html;
+  actualizarContador();
+}
+
+function actualizarContador() {
+  const visibles = document.querySelectorAll(
+    '.tarjeta-capacitacion:not([style*="display: none"])'
+  ).length;
+
+  const total = document.querySelectorAll(".tarjeta-capacitacion").length;
+
+  document.getElementById(
+    "contadorResultados"
+  ).textContent = `Mostrando ${visibles} de ${total} capacitaciones`;
 }
 
 cargar();
+
+document.addEventListener("input", function (e) {
+  if (e.target.id !== "filtroCapacitaciones") return;
+
+  const texto = e.target.value.toLowerCase();
+
+  document.querySelectorAll(".tarjeta-capacitacion").forEach((tarjeta) => {
+    const contenido = tarjeta.textContent.toLowerCase();
+
+    tarjeta.style.display = contenido.includes(texto) ? "" : "none";
+  });
+  actualizarContador();
+});
+
+document.addEventListener("click", function (e) {
+  if (!e.target.classList.contains("btn-filtro")) return;
+
+  document
+    .querySelectorAll(".btn-filtro")
+    .forEach((btn) => btn.classList.remove("activo"));
+
+  e.target.classList.add("activo");
+
+  const filtro = e.target.dataset.filtro;
+
+  document.querySelectorAll(".tarjeta-capacitacion").forEach((tarjeta) => {
+    const estado = tarjeta.dataset.estado;
+
+    if (filtro === "todas" || estado === filtro) {
+      tarjeta.style.display = "";
+    } else {
+      tarjeta.style.display = "none";
+    }
+  });
+
+  actualizarContador();
+});
