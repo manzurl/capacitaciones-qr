@@ -103,51 +103,36 @@ async function cargar() {
 
   html += `
 <div class="empleado">
-
     <h2>${datos[0].Nombre}</h2>
-
-    <p>
-        <strong>Legajo:</strong>
-        ${datos[0].Legajo}
-    </p>
-
-    <p>
-        <strong>Total de capacitaciones:</strong>
-        ${datos.length}
-    </p>
-
-    <div class="resumen">
-
-        <div class="contador verde">
-            🟢 Vigentes: ${vigentes}
-        </div>
-
-        <div class="contador amarillo">
-            🟡 Por vencer: ${proximos}
-        </div>
-
-        <div class="contador rojo">
-            🔴 Vencidas: ${vencidos}
-        </div>
-
-    </div>
-
-    <p class="consulta">
-        Consultado:
-        ${fechaConsulta()}
-    </p>
-
+    <p><strong>Legajo:</strong> ${datos[0].Legajo}</p>
+    <p><strong>Capacitaciones:</strong> ${datos.length}</p>
 </div>
-
 `;
 
   datos.forEach((item) => {
     const estado = obtenerEstado(item.FechaVencimiento);
 
+    let botonCredencial = "";
+
+    if (item.CredencialURL) {
+      botonCredencial = `
+            <a
+                href="${item.CredencialURL}"
+                target="_blank"
+                class="btn-credencial">
+
+                🪪 Ver Credencial
+
+            </a>
+        `;
+    }
+
     html += `
         <div class="card ${estado.clase}">
 
             <h3>${item.Capacitacion}</h3>
+
+            ${botonCredencial}
 
             <p>
                 <strong>Realizado:</strong>
