@@ -1,0 +1,74 @@
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+  background: #f4f6f9;
+  color: #333;
+}
+
+h1 {
+  text-align: center;
+  color: #003366;
+  margin-bottom: 30px;
+}
+
+.empleado {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.card {
+  border-radius: 12px;
+  padding: 18px;
+  margin-bottom: 15px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.vigente {
+  background: #d4edda;
+  border-left: 8px solid #28a745;
+}
+
+.proximo {
+  background: #fff3cd;
+  border-left: 8px solid #ffc107;
+}
+
+.vencido {
+  background: #f8d7da;
+  border-left: 8px solid #dc3545;
+}
+
+.error {
+  background: #f8d7da;
+}
+
+.estado {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* RESPONSIVE PARA CELULAR */
+
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  .empleado {
+    padding: 15px;
+  }
+
+  .card {
+    padding: 15px;
+  }
+}
