@@ -1,17 +1,3 @@
-:root{
-
-    --simplot-marron: #6b5a55;
-    --simplot-amarillo: #f2cf00;
-
-    --simplot-gris: #f4f5f7;
-
-    --simplot-verde-ok: #28a745;
-    --simplot-amarillo-alerta: #ffc107;
-    --simplot-rojo: #dc3545;
-
-}
-
-
 .header {
   display: flex;
   align-items: center;
@@ -41,7 +27,7 @@
 .titulo {
   margin: 0;
 
-  color:var(--simplot-marron);
+  color: #4b006e;
 
   font-size: 38px;
 
@@ -53,7 +39,7 @@
 .subtitulo {
   margin-top: 6px;
 
-  color:#666;
+  color: #666;
 
   font-size: 18px;
 
@@ -88,9 +74,9 @@
 }
 
 .btn-filtro.activo {
-    background:var(--simplot-marron);
+  background: #4b006e;
 
-    color:white;
+  color: white;
 }
 
 .buscador-container {
@@ -128,7 +114,7 @@ body {
   padding: 20px;
   background: #f4f6f9;
   color: #333;
-background:var(--simplot-gris);
+}
 
 h1 {
   text-align: center;
@@ -146,7 +132,6 @@ h1 {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   margin-bottom: 20px;
-  border-left:6px solid var(--simplot-amarillo);
 }
 
 .resumen {
@@ -220,9 +205,9 @@ h1 {
 
   padding: 10px 15px;
 
-  background:var(--simplot-marron);
+  background: #4b006e;
 
-  color:white;
+  color: white;
 
   text-decoration: none;
 
@@ -234,7 +219,7 @@ h1 {
 }
 
 .btn-credencial:hover {
-  background:#554741;
+  background: #6a0099;
 }
 
 /* RESPONSIVE PARA CELULAR */
